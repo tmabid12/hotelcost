@@ -1,111 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-   body{
-    background: linear-gradient(60deg, rgba(226, 247, 39, 0.5), rgba(41, 235, 99, 0.5)), url(bg-img.jpg) center top no-repeat; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.heading{
-    text-align: center;
-    padding-top: 3rem;
-    font-size: 5rem;
-    color: white;
-    padding-bottom: 100px;
-}
-.container{
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.text{
-    font-size: 2rem;
-    color: white;
-    padding-bottom: 20px;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-}
-.container input{
-    font-size: 23px;
-    height: 4rem;
-    width: 30%;
-}
-button{
-    padding: 10px 20px;
-    margin-top: 50px;
-}
+        body {
+            background: linear-gradient(60deg, rgba(226, 247, 39, 0.5), rgba(41, 235, 99, 0.5)), url(bg-img.jpg) center top no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
 
+        .heading {
+            text-align: center;
+            padding-top: 3rem;
+            font-size: 5rem;
+            color: white;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            height: 60vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .text {
+            font-size: 2rem;
+            color: white;
+            padding-bottom: 20px;
+
+        }
+
+        .container input {
+            font-size: 23px;
+            height: 4rem;
+            width: 30%;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 50px;
+        }
+
+        #bills {
+            font-size: 23px;
+            color: white;
+            padding-top: 70px;
+
+        }
     </style>
 </head>
+
 <body>
-    
+
 
     <div class="container">
         <h1 class="heading">Hotel Cost</h1>
         <label for="screen" class="text">How many days you want to stay</label>
         <input type="number" id="screen">
-        <button onclick="totalCost() " >Submit</button>
-        
+        <button onclick="totalCost() ">Submit</button>
+        <p id="bills">hellow</p>
 
     </div>
 
 
 
-
-
-
-
-
-
     <script>
+        function totalCost() {
+            let styingDays = document.getElementById("screen").value;
+
+            if (styingDays <= 10) {
+                let tatalBill = 'Your Bill is ' + " " + styingDays * 100;
+                document.getElementById("bills").innerHTML = tatalBill;
+            }
+            else if (styingDays <= 20) {
+                let nextDays = styingDays - 10;
+                let cost = 1000 + nextDays * 80;
 
 
-function totalCost(){
+                let tatalBill = 'Your Bill is ' + " " + cost;
+                document.getElementById("bills").innerHTML = tatalBill;
+
+            }
 
 
-        
-        let styingDays = document.getElementById("screen").value;
-        
-        
-//    let sDays =  document;
+            else if (styingDays > 20) {
+                let nextDays = styingDays - 20
+                let cost = 1800 + nextDays * 50;
+                let tatalBill = 'Your Bill is ' + " " + cost;
+                document.getElementById("bills").innerHTML = tatalBill;
 
-   if (styingDays <= 10){
-       document.write('Your Bill is ' + " " + styingDays*100)
-   }
-   else if( styingDays <=20){
-       let nextDays = styingDays-10
-       let cost = 1000 + nextDays * 80;
-    document.write('Your Bill is ' + " " + cost )
-   }
-   else if( styingDays >20){
-    let nextDays = styingDays-20
-       let cost = 1800 + nextDays * 50;
-       document.write('Your Bill is ' + " " + cost )
-   }
-   else{
-       document.write('error')
-   }
+            }
+            else {
+                document.write('error');
+            }
 
 
 
-}
+        }
 
 
 
     </script>
 </body>
+
 </html>
